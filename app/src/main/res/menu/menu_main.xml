@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.spc.nashville.MainActivity" >
+
+    <item
+        android:id="@+id/showorg"
+        android:orderInCategory="100"
+        android:title="@string/showorg"
+        app:showAsAction="never"/>
+    
+    <item
+        android:id="@+id/leave"
+        android:orderInCategory="100"
+        android:title="@string/leave"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/stay"
+        android:orderInCategory="100"
+        android:title="@string/stay"
+        app:showAsAction="never"/>
+
+</menu>

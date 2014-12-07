@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Nashville</string>
+    <string name="instruction">It is always good to get together at an offsite, but is it actually work??</string>
+   
+    <!--update01 05-oct-2014 updated <string name="showorg">Show leadership</string> -->
+    <string name="showorg">Show team leads</string>
+    
+    <string name="leave">Leave Nashville?</string>
+	<string name="stay">Stay some more?</string>
+
+</resources>
