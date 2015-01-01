@@ -118,7 +118,7 @@ public class MainActivity extends ActionBarActivity {
 
     public void startCountdownTimer() {
 
-        // check not already running
+        // check not already running...
         if (timerRunning == false) {
 
             // reset the font size starting point
