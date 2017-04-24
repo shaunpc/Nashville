@@ -9,5 +9,6 @@
     
     <string name="leave">Leave Nashville?</string>
 	<string name="stay">Stay some more?</string>
+    <string name="starting">...here we go...</string>
 
 </resources>

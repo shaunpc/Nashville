@@ -4,7 +4,7 @@ import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -22,7 +22,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "Nashville";
     ImageButton imageButton;
@@ -119,7 +119,7 @@ public class MainActivity extends ActionBarActivity {
     public void startCountdownTimer() {
 
         // check not already running...
-        if (timerRunning == false) {
+        if (!timerRunning) {
 
             // reset the font size starting point
             fontsize = 40;
@@ -162,9 +162,9 @@ public class MainActivity extends ActionBarActivity {
                     textView2.setText("...");
                     timerRunning = false;
                     // start Dolly if not already going...
-                    if (mediaPlayer != null && mediaPlayer.isPlaying() == false) {
+                    if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
                         mediaPlayer.start();
-                        textView2.setText("...here we go...");
+                        textView2.setText(R.string.starting);
                     }
 
                     // show the last alert for Maria!
@@ -196,8 +196,8 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View arg0) {
 
                 // Take action based on state of music & timer
-                if (timerRunning == false) {
-                    if (mediaPlayer != null && mediaPlayer.isPlaying() == false) {
+                if (!timerRunning) {
+                    if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
                         // timer not running and music not playing
                         Toast.makeText(getApplicationContext(),
                                 "Okay, show's over, time to go...bye! ", Toast.LENGTH_SHORT)
@@ -217,7 +217,7 @@ public class MainActivity extends ActionBarActivity {
                                 .show();
                     }
                 } else {
-                    if (mediaPlayer.isPlaying() == false) {
+                    if (!mediaPlayer.isPlaying()) {
                         // timer IS running but music not playing
                         Toast.makeText(getApplicationContext(),
                                 "Hold tight... more coming!", Toast.LENGTH_SHORT)
@@ -230,14 +230,8 @@ public class MainActivity extends ActionBarActivity {
                                 .show();
                     }
                 }
-                ;
-
             }
-
-            ;
-
         });
-
     }
 
     @Override
@@ -257,7 +251,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         Log.v(TAG, "onResume - timerRunning is " + timerRunning);
-        if (timerRunning == false) startCountdownTimer();
+        if (!timerRunning) startCountdownTimer();
         super.onResume();
         // The activity has become visible (it is now "resumed").
     }
@@ -267,7 +261,7 @@ public class MainActivity extends ActionBarActivity {
         Log.v(TAG, "onPause - pausing MP and cancelling Timer");
         if (mediaPlayer != null && mediaPlayer.isPlaying())
             mediaPlayer.pause();
-        if (countDownTimer != null && timerRunning == true) {
+        if (countDownTimer != null && timerRunning) {
             countDownTimer.cancel();
             timerRunning = false;
         }
@@ -280,7 +274,7 @@ public class MainActivity extends ActionBarActivity {
         Log.v(TAG, "onStop- stopping MP and cancelling Timer");
         if (mediaPlayer != null && mediaPlayer.isPlaying())
             mediaPlayer.stop();
-        if (countDownTimer != null && timerRunning == true) {
+        if (countDownTimer != null && timerRunning) {
             countDownTimer.cancel();
             timerRunning = false;
         }
