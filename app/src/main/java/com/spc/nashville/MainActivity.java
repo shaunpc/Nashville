@@ -49,12 +49,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Select the instruction text to set it scrolling...
-        textView1 = (TextView) findViewById(R.id.textView1);
+        textView1 = findViewById(R.id.textView1);
         textView1.setSelected(true);
 
         // get the other UI elements
-        imageButton = (ImageButton) findViewById(R.id.imageButton1);
-        textView2 = (TextView) findViewById(R.id.textView2);
+        imageButton = findViewById(R.id.imageButton1);
+        textView2 = findViewById(R.id.textView2);
 
 
         // enable the ImageButton listener - this will stop/start/etc depending on state
@@ -300,17 +300,17 @@ public class MainActivity extends AppCompatActivity {
         View toastRoot = inflater.inflate(R.layout.custom_toast, (ViewGroup) findViewById(R.id.toast_layout_root));
 
         // Set the image (org_piccie)
-        ImageView image = (ImageView) toastRoot.findViewById(R.id.toast_imageview);
+        ImageView image = toastRoot.findViewById(R.id.toast_imageview);
         int drawableId = getResources().getIdentifier(org_piccie[index], "drawable", getPackageName());
         image.setImageResource(drawableId);
 
 
         // Set the first text (org_name)
-        TextView text1 = (TextView) toastRoot.findViewById(R.id.toast_textview1);
+        TextView text1 = toastRoot.findViewById(R.id.toast_textview1);
         text1.setText(org_name[index]);
 
         // Set the first text (org_title)
-        TextView text2 = (TextView) toastRoot.findViewById(R.id.toast_textview2);
+        TextView text2 = toastRoot.findViewById(R.id.toast_textview2);
         text2.setText(org_title[index]);
 
         Toast toast = new Toast(getApplicationContext());
